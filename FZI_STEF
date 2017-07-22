@@ -1,0 +1,57 @@
+using System;
+using System.Linq;
+
+namespace FZI_STEF
+{
+    class Program
+    {
+        static void Main()
+        {
+            int firstIndex, lastIndex;
+
+            int n = int.Parse(Console.ReadLine());
+            int[] array = new int[n];
+            int[] helperArray = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                array[i] = int.Parse(Console.ReadLine());
+            }
+
+            int suma;
+            for (int j = n - 1; j >= 0; j--)
+            {
+                suma = 0;
+                for (int i = 0; i < j; i++)
+                {
+                    suma += array[i];
+                }
+                helperArray[j] = suma;
+            }
+
+            lastIndex = helperArray.ToList().IndexOf(helperArray.Max()); ;
+
+            Array.Clear(helperArray,0,helperArray.Count());
+
+            for (int j = 0; j < n - 1; j++)
+            {
+                suma = 0;
+                for (int i = j; i < n - 1; i++)
+                {
+                    suma += array[i];
+                }
+                helperArray[j] = suma;
+            }
+            firstIndex = helperArray.ToList().IndexOf(helperArray.Max());
+
+            int result = 0;
+            for (int k = firstIndex; k < lastIndex; k++)
+            {
+                result += array[k];
+            }
+
+            Console.WriteLine(result);
+            Console.ReadKey();
+        }
+    }
+}
