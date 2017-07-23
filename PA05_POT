@@ -1,0 +1,93 @@
+using System;
+
+
+namespace Problem_PA05_POT
+{
+    class Program
+    {
+        static void Main()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for(int i = 0; i < n; i++)
+            {
+                string line = Console.ReadLine();
+                string[] tokens = line.Split(' ');
+
+                int[] numbers = Array.ConvertAll(tokens, int.Parse);
+
+                int last_a = numbers[0]%10;
+                int last_b = numbers[1]%10;
+
+                switch (last_a)
+                {
+                    case 0: 
+                    case 1:
+                    case 5:
+                    case 6:
+                        Console.WriteLine(last_a);
+                        break;
+                    case 4:
+                        if(last_b%2 == 0)
+                        {
+                            Console.WriteLine("6");
+                        }
+                        else
+                        {
+                            Console.WriteLine("4");
+                        }
+                        break;
+                    case 9:
+                        if (last_b % 2 == 0)
+                        {
+                            Console.WriteLine("1");
+                        }
+                        else
+                        {
+                            Console.WriteLine("9");
+                        }
+                        break;
+                    case 2:
+                        switch ((numbers[1] % 100) % 4)
+                        {
+                            case 1: Console.WriteLine("2"); break;
+                            case 2: Console.WriteLine("4"); break;
+                            case 3: Console.WriteLine("8"); break;
+                            case 0: Console.WriteLine("6"); break;
+                        }
+                        break;
+                    case 3:
+                        switch ((numbers[1] % 100) % 4)
+                        {
+                            case 1: Console.WriteLine("3"); break;
+                            case 2: Console.WriteLine("9"); break;
+                            case 3: Console.WriteLine("7"); break;
+                            case 0: Console.WriteLine("1"); break;
+                        }
+                        break;
+                    case 7:
+                        switch ((numbers[1] % 100) % 4)
+                        {
+                            case 1: Console.WriteLine("7"); break;
+                            case 2: Console.WriteLine("9"); break;
+                            case 3: Console.WriteLine("3"); break;
+                            case 0: Console.WriteLine("1"); break;
+                        }
+                        break;
+                    case 8:
+                        switch ((numbers[1] % 100) % 4)
+                        {
+                            case 1: Console.WriteLine("8"); break;
+                            case 2: Console.WriteLine("4"); break;
+                            case 3: Console.WriteLine("2"); break;
+                            case 0: Console.WriteLine("6"); break;
+                        }
+                        break;
+                }
+
+             }
+
+            Console.ReadKey();
+        }
+    }
+}
