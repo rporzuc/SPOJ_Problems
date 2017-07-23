@@ -1,0 +1,95 @@
+using System;
+
+
+namespace Problem_SKARBFI
+{
+    class Program
+    {
+        static void Main()
+        {
+            short x, y;
+
+            short n = short.Parse(Console.ReadLine());
+
+            for (short i = 0; i < n; i++)
+            {
+                x = 0;
+                y = 0;
+
+                short m = short.Parse(Console.ReadLine());
+
+                for (short j = 0; j < m; j++)
+                {
+                    string line = Console.ReadLine();
+                    string[] tokens = line.Split(' ');
+                    short[] numbers = Array.ConvertAll(tokens, short.Parse);
+
+                    switch (numbers[0])
+                    {
+                        case 0:
+                            y += numbers[1];
+                            break;
+                        case 1:
+                            y -= numbers[1];
+                            break;
+                        case 2:
+                            x -= numbers[1];
+                            break;
+                        case 3:
+                            x += numbers[1];
+                            break;
+                    }
+
+                }
+
+                if (y == 0 && x == 0)
+                {
+                    Console.WriteLine("studnia");
+                }
+                else if (y != 0 && x == 0)
+                {
+                    if (y > 0)
+                    {
+                        Console.WriteLine("0 " + y);
+                    }
+                    else
+                    {
+                        Console.WriteLine("1 " + Math.Abs(y));
+                    }
+                }else if (y == 0 && x != 0)
+                {
+                    if (x > 0)
+                    {
+                        Console.WriteLine("3 " + x);
+                    }
+                    else
+                    {
+                        Console.WriteLine("2 " + Math.Abs(x));
+                    }
+                }
+                else
+                {
+                    if (y > 0)
+                    {
+                        Console.WriteLine("0 " + y);
+                    }
+                    else
+                    {
+                        Console.WriteLine("1 " + Math.Abs(y));
+                    }
+
+                    if (x > 0)
+                    {
+                        Console.WriteLine("3 " + x);
+                    }
+                    else
+                    {
+                        Console.WriteLine("2 " + Math.Abs(x));
+                    }
+                }
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
