@@ -1,0 +1,23 @@
+using System;
+
+
+namespace Problem_POTSAM
+{
+    class Program
+    {
+        static void Main()
+        {
+            string line = Console.ReadLine();
+            string[] tokens = line.Split(' ');
+            int[] numbers = Array.ConvertAll(tokens, int.Parse);
+
+            int n1 = numbers[0];
+            int k1 = numbers[1];
+            int n2 = numbers[2];
+            int k2 = numbers[3];
+
+            Console.WriteLine(n1 * k1 + n2 * k2);
+            Console.ReadKey();
+        }
+    }
+}
