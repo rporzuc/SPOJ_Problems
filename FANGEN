@@ -1,3 +1,4 @@
+
 using System;
 
 
@@ -22,6 +23,8 @@ namespace Problem_FANGEN
     {
         int size;
         char way;
+
+char[,] mainArray;
         
         public WindMills(int size)
         {
@@ -33,6 +36,9 @@ namespace Problem_FANGEN
             {
                 way = '+';
             }
+
+ mainArray = createWindMill(this.size);
+
         }
 
         public char[,] createWindMill(int s)
@@ -110,7 +116,7 @@ namespace Problem_FANGEN
         public void showWindMill()
         {
 
-           char[,] mainArray = createWindMill(size);
+           
             
 
             for (int i = 0; i< 2* size; i++)
