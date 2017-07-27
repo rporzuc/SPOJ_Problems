@@ -1,0 +1,49 @@
+using System;
+using System.Globalization;
+
+namespace Problem_SMWP_110
+{
+    class Program
+    {
+        static void Main()
+        {
+            string line = Console.ReadLine();
+            string[] tokens = line.Split(' ');
+            int[] numbers = Array.ConvertAll(tokens, int.Parse);
+
+            double maxDistance = 0;
+            int maxX = 0;
+            int maxY = 0;
+
+            for (int i = 0;  i < numbers[2]; i++)
+            {
+
+                line = Console.ReadLine();
+                tokens = line.Split(' ');
+                int[] coordinates = Array.ConvertAll(tokens, int.Parse);
+
+                double distance = CalcDistance(numbers[0], numbers[1] , coordinates[0], coordinates[1]);
+
+                if (distance > maxDistance)
+                {
+                    maxDistance = distance;
+                    maxX = coordinates[0];
+                    maxY = coordinates[1];
+                }
+
+            }
+
+            Console.WriteLine(maxX + " " + maxY);
+            Console.WriteLine((Math.Round(maxDistance, 2)).ToString("0.00", CultureInfo.InvariantCulture));
+            Console.ReadKey();
+            
+        }
+
+         static double CalcDistance(int startX, int startY,int x, int y)
+        {
+            double d = Math.Sqrt(Math.Pow((x - startX), 2) + Math.Pow((y - startY), 2));
+
+            return d;
+        }
+    }
+}
