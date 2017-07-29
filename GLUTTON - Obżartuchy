@@ -1,0 +1,29 @@
+using System;
+
+namespace Problem_GLUTTON
+{
+    class Program
+    {
+        static void Main()
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n; i++)
+            {
+                string line = Console.ReadLine();
+                string[] tokens = line.Split(' ');
+                int[] numbers = Array.ConvertAll(tokens, int.Parse);
+
+                double cookies = 0;
+
+                for (int j = 0; j < numbers[0]; j++)
+                {
+                    cookies += 86400 / int.Parse(Console.ReadLine());
+                }
+
+                double boxes = Math.Ceiling(cookies / numbers[1]);
+                Console.WriteLine(boxes);
+            }
+        }
+    }
+}
